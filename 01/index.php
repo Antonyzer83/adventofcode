@@ -1,7 +1,7 @@
 <?php
 
 // Part One
-$inputFile = fopen('input.txt', 'r');
+$inputFile = fopen($argv[1] ?? 'input.txt', 'r');
 $allCalories = array();
 $currentCalories = 0;
 $currentLine = null;

@@ -33,3 +33,7 @@
 
 - Part One: get first mark index with 4 chars
 - Part Two: get first mark index with X chars
+
+## 07
+
+- Part One: get folders with size under 100000

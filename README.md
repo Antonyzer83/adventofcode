@@ -37,3 +37,4 @@
 ## 07
 
 - Part One: get folders with size under 100000
+- Part Two: get min folder size to have free space for update

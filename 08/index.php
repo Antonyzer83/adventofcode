@@ -6,6 +6,7 @@ $trees = array();
 $finalTrees = array();
 $maxTrees = array();
 $finalTreesCount = 0;
+$scenicScore = 0;
 
 while (!feof($inputFile)) {
   $currentLine = fgets($inputFile);
@@ -18,6 +19,22 @@ function isVisible($line, $height)
   return sizeof(array_filter($line, function ($item) use ($height) {
     return $item >= $height;
   })) === 0;
+}
+
+function getScenicScore($lines, $height)
+{
+  $finalScore = 1;
+  foreach ($lines as $line) {
+    $lineScore = 0;
+    for ($i = 0; $i < sizeof($line); $i++) {
+      $lineScore++;
+      if ($line[$i] >= $height) {
+        break;
+      }
+    }
+    $finalScore *= $lineScore;
+  }
+  return $finalScore;
 }
 
 for ($i = 0; $i < sizeof($trees); $i++) {
@@ -34,11 +51,12 @@ for ($i = 0; $i < sizeof($trees); $i++) {
       $finalTrees[$i][$j] = "O";
       $finalTreesCount++;
     } else {
-      $top = array_slice(array_column($trees, $j), 0, $i);
+      $top = array_reverse(array_slice(array_column($trees, $j), 0, $i));
       $bottom = array_slice(array_column($trees, $j), $i + 1);
-      $left = array_slice($trees[$i], 0, $j);
+      $left = array_reverse(array_slice($trees[$i], 0, $j));
       $right = array_slice($trees[$i], $j + 1);
 
+      // Part One
       if (
         isVisible($top, $trees[$i][$j]) ||
         isVisible($bottom, $trees[$i][$j]) ||
@@ -49,6 +67,13 @@ for ($i = 0; $i < sizeof($trees); $i++) {
         $finalTreesCount++;
       } else {
         $finalTrees[$i][$j] = "X";
+      }
+
+      // Part Two
+      $currentScore = getScenicScore([$top, $bottom, $left, $right], $trees[$i][$j]);
+      if ($currentScore > $scenicScore) {
+        $scenicScore = $currentScore;
+        $scenicScoreClues = "$i $j " . $trees[$i][$j];
       }
     }
 
@@ -63,3 +88,4 @@ for ($i = 0; $i < sizeof($trees); $i++) {
 //       I+1 J
 
 echo "Part One: " . $finalTreesCount . "\n";
+echo "Part Two: " . $scenicScore . "\n";

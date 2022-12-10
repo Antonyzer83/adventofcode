@@ -43,3 +43,7 @@
 
 - Part One: count visible trees in a grid
 - Part Two: highest scenic score possible for any tree
+
+## 09
+
+- Part One: count positions the tail visits at least at once

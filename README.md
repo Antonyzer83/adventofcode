@@ -47,3 +47,4 @@
 ## 09
 
 - Part One: count positions the tail visits at least at once
+- Part Two: count position of tail with 9 elements

@@ -48,3 +48,7 @@
 
 - Part One: count positions the tail visits at least at once
 - Part Two: count position of tail with 9 elements
+
+## 10
+
+- Part One: count cycles and sum of signal strength

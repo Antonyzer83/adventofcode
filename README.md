@@ -52,3 +52,4 @@
 ## 10
 
 - Part One: count cycles and sum of signal strength
+- Part Two: display screen with eight chars

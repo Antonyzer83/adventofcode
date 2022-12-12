@@ -16,6 +16,21 @@ function checkCycles($cycles, $x)
   }
 }
 
+function checkSpritePosition($cycles, $x)
+{
+  $spritePosition = $cycles % 40;
+  if ($spritePosition >= $x && $spritePosition <= ($x + 2)) {
+    echo "#";
+  } else {
+    echo ".";
+  }
+  if ($spritePosition === 0) {
+    echo "\n";
+  }
+}
+
+echo "Part Two: \n";
+
 while (!feof($inputFile)) {
   $currentLine = fgets($inputFile);
 
@@ -23,10 +38,12 @@ while (!feof($inputFile)) {
 
   if ($args[0] === "noop") {
     $cycles++;
+    checkSpritePosition($cycles, $x);
     $totalSignalStrength += checkCycles($cycles, $x);
   } else {
     for ($i = 0; $i < 2; $i++) {
       $cycles++;
+      checkSpritePosition($cycles, $x);
       $totalSignalStrength += checkCycles($cycles, $x);
       if ($i === 1) {
         $x += $args[1];
@@ -35,4 +52,4 @@ while (!feof($inputFile)) {
   }
 }
 
-echo "Part One: " . $totalSignalStrength . "\n";
+echo "\nPart One: " . $totalSignalStrength . "\n";

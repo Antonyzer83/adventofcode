@@ -57,3 +57,4 @@
 ## 11
 
 - Part One: manipulate items with multiple operations and count inspected items
+- Part Two: 10000 rounds but change worry indice = replace 3 by first eight prime numbers

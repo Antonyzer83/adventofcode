@@ -53,3 +53,7 @@
 
 - Part One: count cycles and sum of signal strength
 - Part Two: display screen with eight chars
+
+## 11
+
+- Part One: manipulate items with multiple operations and count inspected items

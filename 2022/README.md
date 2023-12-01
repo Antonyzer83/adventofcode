@@ -1,4 +1,4 @@
-# adventofcode2022
+# 2022
 
 [Avent of Code](https://adventofcode.com/2022)
 

@@ -33,7 +33,6 @@ content.split("\n").forEach((line, index) => {
       }
     } else {
       // Reset step
-      console.log(currentStep, maps[currentStep]);
       previousStep = currentStep;
       currentStep = "";
       indexes = [];
@@ -41,5 +40,12 @@ content.split("\n").forEach((line, index) => {
   }
 });
 
-console.log(maps);
 console.log("Part One ", Math.min.apply(Math, Object.values(maps).pop()));
+
+// maps["seed"] = [];
+// const seeds = line.split(":")[1].trim().split(" ").map(Number);
+// for (let i = 0; i < seeds.length; i += 2) {
+//   for (let j = seeds[i]; j < seeds[i] + seeds[i + 1]; j++) {
+//     maps["seed"].push(j);
+//   }
+// }
